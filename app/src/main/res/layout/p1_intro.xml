@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo_app2"
+    tools:context=".p1_intro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.4"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="949dp"
+            android:layout_height="1166dp"
+            android:contentDescription="@string/desc"
+            android:src="@drawable/logo" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button_en"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="1150dp"
+                android:background="@drawable/english_icon"/>
+
+            <Button
+                android:id="@+id/button_cat"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="1350dp"
+                android:layout_marginTop="-100dp"
+                android:background="@drawable/catalan_icon" />
+
+            <Button
+                android:id="@+id/button_esp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="1550dp"
+                android:layout_marginTop="-100dp"
+                android:background="@drawable/spanish_icon" />
+
+            <TextView
+                android:id="@+id/textView_titulo"
+                style="@style/textTittleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
+                android:text="@string/p1_titulointro" />
+
+            <TextView
+                android:id="@+id/textView_desc1"
+                style="@style/textStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/p1_introduccion1" />
+
+            <TextView
+                android:id="@+id/textView_desc2"
+                style="@style/textStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/p1_introduccion2" />
+
+            <TextView
+                android:id="@+id/textView_desc3"
+                style="@style/textStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/p1_introduccion3" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5">
+
+        <Button
+            android:id="@+id/p2_buttonAyuda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="100dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/transparent"
+            android:text="@string/button_Ayuda"
+            style="@style/ayuda"
+            android:textColor="@color/colorAmarillo" />
+
+        <Button
+            android:id="@+id/p1_buttonEmpezar"
+            style="@style/buttonStyleBig"
+            android:layout_width="950dp"
+            android:layout_height="200dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="1300dp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="-30dp"
+            android:text="@string/button_Empezar"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo_app2"
+    tools:context=".p3_dificultad">
+
+    <Button
+        android:id="@+id/p3_buttonDifBaja"
+        style="@style/buttonStyleBig"
+        android:layout_width="950dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="850dp"
+        android:text="@string/button_DifBaja" />
+
+    <Button
+        android:id="@+id/p3_buttonDifMedia"
+        style="@style/buttonStyleBig"
+        android:layout_width="950dp"
+        android:layout_height="250dp"
+        android:layout_marginLeft="850dp"
+        android:layout_marginTop="600dp"
+        android:text="@string/button_DifMedia" />
+
+    <Button
+        android:id="@+id/p3_buttonDifAlta"
+        style="@style/buttonStyleBig"
+        android:layout_width="950dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="900dp"
+        android:text="@string/button_DifAlta"
+        android:layout_marginLeft="850dp"/>
+
+    <Button
+        android:id="@+id/p2_buttonAyuda"
+        style="@style/ayuda"
+        android:layout_width="259dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="1300dp"
+        android:background="@android:color/transparent"
+        android:text="@string/button_Ayuda"
+        android:textColor="@color/colorAmarillo" />
+
+    <Button
+        android:id="@+id/p3_buttonArrowBack"
+        android:layout_width="143dp"
+        android:layout_height="140dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="92dp"
+        android:layout_marginLeft="92dp"
+        android:layout_marginTop="101dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/arrow_back" />
+
+</RelativeLayout>

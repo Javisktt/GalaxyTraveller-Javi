@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Galaxy Traveller</string>
+    <string name="button_Ayuda">Ajuda</string>
+    <string name="button_DifAlta">DIFICULTAT ALTA</string>
+    <string name="button_DifBaja">DIFICULTAT BAIXA</string>
+    <string name="button_DifMedia">DIFICULTAT MITJANA</string>
+    <string name="button_Empezar">COMENÇAR</string>
+    <string name="button_Inicio">INICI</string>
+    <string name="button_Jugar">JUGAR</string>
+    <string name="button_PersonPj">PERSONALITZAR PERSONATJE</string>
+    <string name="button_Ranking">RANKING</string>
+    <string name="desc">desc</string>
+    <string name="p1_introduccion1">En aquesta aplicació podras contestar una serie de preguntes relacionades amb l\'astronomia.</string>
+    <string name="p1_introduccion2">No t\'amoïnis! So no coneixes molt sobre aquest ambit, podras canviar la dificultad en funció dels teus coneixements.</string>
+    <string name="p1_introduccion3">Comença l\'aventura pulsant el buttó que tens a continuació!</string>
+    <string name="p1_titulointro">Benvinguts a Galaxy Traveller!</string>
+    <string name="textajuda">Per a jugar al joc primer tens que escollir un perfil i un nom.</string>
+    <string name="textajuda2">Selecciona una dificultat i disfruta de les preguntes!</string>
+    <string name="textajuda3">Toca l\'imatge del logo per a tornar a la pantalla principal!</string>
+    <string name="textajudatitulo">AJUDA</string>
+</resources>

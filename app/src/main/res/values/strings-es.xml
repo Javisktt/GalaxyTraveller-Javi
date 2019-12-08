@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Galaxy Traveller</string>
+    
+    //Pantalla 1    
+    <string name="button_Ayuda">Ayuda</string>
+    <string name="desc">desc</string>
+    <string name="button_Empezar">EMPEZAR</string>
+    <string name="p1_titulointro">¡Bienvenidos a Galaxy Traveller!  </string>
+    <string name="p1_introduccion1">En esta aplicación podrás contestar una serie de preguntas relacionadas con la astronomía.</string>
+    <string name="p1_introduccion3">¡Empieza con esta aventura pulsando el botón que tienes a continuación! </string>
+
+
+    //Pantalla 2 y 3
+    <string name="button_Jugar">JUGAR</string>
+    <string name="button_Inicio">INICIO</string>
+    <string name="button_PersonPj">PERSONALIZAR PERSONAJE</string>
+    <string name="button_Ranking">RANKING</string>
+    <string name="button_DifBaja">DIFICULTAD BAJA</string>
+    <string name="button_DifMedia">DIFICULTAD MEDIA</string>
+    <string name="button_DifAlta">DIFICULTAD ALTA</string>
+
+    //Pantalla Ayuda
+    <string name="textajuda">Para jugar al juego antes tienes que escoger un perfil y un nombre.</string>
+    <string name="textajuda2">Selecciona una dificultad y disfruta con las preguntas!</string>
+    <string name="textajuda3">Pulsa la imagen del logo para volver a la pantalla principal!</string>
+    <string name="textajudatitulo">AYUDA</string>
+
+
+</resources>
