@@ -31,7 +31,6 @@ public class p3_dificultad extends AppCompatActivity {
             }
 
         });
-
         //Creamos un string donde se guarda la ruta de nuestra fuente
         String ruta_fuente = "fonts/MidNight.ttf";
         //Lo ponemos como un recurso para poder usarlo y hacemos que coja el pathing de nuestra fuente asignandole el string anterior

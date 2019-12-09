@@ -53,7 +53,6 @@ public class p_preguntas extends AppCompatActivity {
         ArrayList <Pregunta> todas = new ArrayList<Pregunta>();
 
         boolean permitido = permisos ();
-
         opcio1 = findViewById(R.id.opcio1);
         opcio2 = findViewById(R.id.opcio2);
         opcio3 = findViewById(R.id.opcio3);
