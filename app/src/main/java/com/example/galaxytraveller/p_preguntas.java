@@ -1,15 +1,19 @@
 package com.example.galaxytraveller;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -25,164 +29,311 @@ import java.util.Iterator;
 public class p_preguntas extends AppCompatActivity {
 
     private Typeface fuenteApp;
+    public static final int MILLIS = 31000;
+    public static final int INTERVAL = 1000;
+    public static final byte RONDA_START = 0;
+    public static final byte RON_TOTALES = 9;
+    static final int REQUEST_CODE_ASK_PERMISSION = 111;
 
-    private static final int MAX_COUNTER = 30000;
-    private int pregunta = 0, preguntes = 10, encertades = 0, fallades = -1;
-    private CountDownTimer timer;
-    private ProgressBar progress;
-    private boolean enJoc = true;
+    private byte rondas;
+
+    private boolean correcta;
+    private Pregunta actual;
+    private ArrayList<Pregunta> dificultad_seleccionada = new ArrayList<Pregunta>();
+    private TextView nomPregunta;
+    private Button opcio1;
+    private Button opcio2;
+    private Button opcio3;
+    private Button opcio4;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preguntas);
-        ArrayList<Pregunta> todas = new ArrayList<Pregunta>();
+        ArrayList <Pregunta> todas = new ArrayList<Pregunta>();
+
+        boolean permitido = permisos ();
+
+        opcio1 = findViewById(R.id.opcio1);
+        opcio2 = findViewById(R.id.opcio2);
+        opcio3 = findViewById(R.id.opcio3);
+        opcio4 = findViewById(R.id.opcio4);
+        final Button button_enrere = findViewById(R.id.button_enrere);
 
 
-
-        TextView nomPregunta = findViewById(R.id.nomPregunta);
-        Button opcio1 = findViewById(R.id.opcio1);
-        Button opcio2 = findViewById(R.id.opcio2);
-        Button opcio3 = findViewById(R.id.opcio3);
-        Button opcio4 = findViewById(R.id.opcio4);
-
-
-        opcio1.setOnClickListener(new View.OnClickListener()
-        {
+        opcio1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
+                RellenaPregunta();
 
-                if(enJoc)
-                {
-                    timer.cancel();
-                    iniciarPregunta(true);
-                }
             }
         });
 
-        opcio2.setOnClickListener(new View.OnClickListener()
-        {
+        opcio2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                if(enJoc)
-                {
-                    timer.cancel();
-                    iniciarPregunta(true);
-                }
+            public void onClick(View view) {
+                RellenaPregunta();
+
             }
         });
 
         opcio3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(enJoc)
-                {
-                    timer.cancel();
-                    iniciarPregunta(true);
-                }
+                RellenaPregunta();
+
             }
         });
 
         opcio4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(enJoc)
-                {
-                    timer.cancel();
-                    iniciarPregunta(true);
-                }
+                RellenaPregunta();
+
             }
         });
 
+        button_enrere.setOnClickListener(new View.OnClickListener() {
 
-        String dir = Environment.getExternalStorageDirectory().getAbsolutePath();
-        String path = dir + "/data/Preguntas.json";
-        FileReader file = null;
+            @Override
+            public void onClick(View view) {
+                Intent button_enrere = new Intent(p_preguntas.this, p1_intro.class);
+                startActivity(button_enrere);
 
-        try {
-            file =  new FileReader(path);
+            }
+        });
 
-            BufferedReader buffer = new BufferedReader(file);
-            Gson gson = new Gson();
-            Type tipo = new TypeToken<ArrayList<Pregunta>>(){}.getType();
-            todas  = gson.fromJson(buffer, tipo);
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        ArrayList<Pregunta> dificultad_seleccionada = new ArrayList<Pregunta>();
-
-
-        Iterator<Pregunta> iteratorPregunta = todas.iterator();
-
-        while(iteratorPregunta.hasNext())
+        if (permitido == true)
         {
 
-            Pregunta pregun = iteratorPregunta.next();
+
+            String dificultad = "Medio";
+
+            Gson gson = new Gson();
+
+            //if (dificultad_seleccionada.isEmpty())
+            //{
 
 
-            if (pregun.getDificultad().equals(dificultad))
+
+            String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/data/Preguntas.json";
+
+
+            FileReader file = null;
+
+
+            try {
+
+                file =  new FileReader(path);
+
+                BufferedReader buffer = new BufferedReader(file);
+
+
+                Type tipo = new TypeToken<ArrayList<Pregunta>>(){}.getType();
+
+
+                todas  = gson.fromJson(buffer, tipo);
+
+
+            } catch (FileNotFoundException e)
             {
 
-                dificultad_seleccionada.add(pregun);
-
+                e.printStackTrace();
 
             }
 
-        }
 
 
-    }
 
-    public void iniciarPregunta(boolean encertada)
-    {
-        final TextView nomPregunta = findViewById(R.id.nomPregunta);
+            Iterator<Pregunta> iteratorPregunta = todas.iterator();
 
-        progress = findViewById(R.id.progressBar);
-        progress.setMax(MAX_COUNTER);
-
-        if(encertada)
-        {
-            encertades++;
-        }
-        else
-        {
-            fallades++;
-        }
-        pregunta++;
-
-        if(pregunta <= 10)
-        {
-            timer = new CountDownTimer(MAX_COUNTER, MAX_COUNTER / 100 )
+            while(iteratorPregunta.hasNext())
             {
 
-                public void onTick(long millisUntilFinished)
+                Pregunta pregun = iteratorPregunta.next();
+
+                if (pregun.getDificultad().equals(dificultad))
                 {
-                    nomPregunta.setText("Pregunta " + pregunta  + ": " +
-                            encertades + " / " + fallades + " (" +
-                            (encertades + fallades) + ")");
-                    progress.setProgress((int) millisUntilFinished);
+
+                    dificultad_seleccionada.add(pregun);
+
+
                 }
 
-                public void onFinish()
-                {
-                    iniciarPregunta(false);
-                    this.cancel();
-                }
-            }.start();
+            }
+
+
+            rondas = RONDA_START;
+
+
+
+
+            RellenaPregunta();
+
+
+
+            /*while (rondas < RON_TOTALES && rondas < dificultad_seleccionada.size())
+            {
+            }*/
+
+
+
+
+        }
+
+    }
+
+    public Boolean permisos ()
+    {
+
+
+        Boolean permitido = false;
+
+        if (android.os.Build.VERSION.SDK_INT >= 23)
+        {
+            // Si executem la versió Marshmallow (6.0) o posterior, haurem de demanar
+            // permisos en temps d'execució
+
+            // Comprovem si l'usuari ja ens ha donat permisos en una execió anterior
+            if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED)
+            {
+
+
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        REQUEST_CODE_ASK_PERMISSION);
+
+                // Codi que volem executar
+                permitido = true;
+
+            }
+            else
+            {
+                // Si l'usuari ja ens havia atorgat permisos en una execució anterior,
+                // executem directament el nostre codi
+
+                permitido = true;
+                // Codi que volem executar
+            }
         }
         else
         {
-            enJoc = false;
-            nomPregunta.setText("Final. OK: " + encertades + ", KO: " + fallades);
+            // Si executem una versió anterior a la versió Marshmallow (6.0),
+            // no cal demanar cap permís, i podem executar el nostre codi directament
+            permitido = true;
+            // Codi que volem executar
         }
+
+        return permitido;
+
+    }
+
+    //Rellena una pregunta
+    public void RellenaPregunta()
+    {
+
+        actual = preguntaRandom(dificultad_seleccionada);
+        nomPregunta = findViewById(R.id.nomPregunta);
+        nomPregunta.setText(actual.getPregunta());
+        respuestaRandom(actual, opcio1, opcio2, opcio3, opcio4);
+
+
     }
 
 
 
+/* Se elige una respuesta, guardada en un objeto de tipo Pregunta, con un número rándom,
+para evitar la predicción de la próxima
+ */
+
+    public Pregunta preguntaRandom (ArrayList<Pregunta> dificultadSeleccionada)
+    {
+
+        Pregunta selected;
+
+        byte tocaNumero;
+
+        tocaNumero =  (byte) (Math.random() * dificultadSeleccionada.size());
+
+        selected = dificultadSeleccionada.get(tocaNumero);
+
+        return selected;
+
+
+    }
+
+    /*Coincidiendo con la anterior, hacemos que cada respuesta posible, aunque haya tocado
+    antes, también sea difícil predecir en que botón está*/
+
+    public void respuestaRandom (Pregunta actual, Button opcion1, Button opcion2,
+                                 Button opcion3, Button opcion4)
+    {
+
+        ArrayList<String> respuestas = new ArrayList<>();
+
+        respuestas.add(actual.getRespuestaCorrecta());
+
+        respuestas.add(actual.getRespuestaInCorrecta1());
+
+        respuestas.add(actual.getRespuestaIncorrecta2());
+
+        respuestas.add(actual.getRespuestaIncorrecta3());
+
+
+        asignacion (opcion1, respuestas);
+
+        asignacion (opcion2, respuestas);
+
+        asignacion (opcion3, respuestas);
+
+        asignacion (opcion4, respuestas);
+
+    }
+
+    public void asignacion (Button opcion, ArrayList<String> respuestas)
+    {
+
+        final byte INTER_MAX = 4;
+
+        byte tocaNumero;
+
+        tocaNumero = (byte) (Math.random() * respuestas.size());
+
+        opcion.setText(respuestas.get(tocaNumero));
+
+        respuestas.remove(tocaNumero);
+
+    }
+
+
+    public void cogeRespuesta(View v, Pregunta actual)
+    {
+
+        boolean correcta = false;
+
+        Button respuesta = (Button) v;
+
+
+        if (actual.getRespuestaCorrecta().equals(respuesta.getText().toString()))
+        {
+
+            respuesta.setTextColor(Color.GREEN);
+            rondas++;
+            respuesta.setTextColor (Color.BLACK);
+
+
+        }
+        else
+        {
+
+            respuesta.setTextColor(Color.RED);
+
+        }
+
+
+    }
 
 
 }
