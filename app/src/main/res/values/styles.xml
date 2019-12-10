@@ -36,6 +36,10 @@
         <item name="android:textSize">70sp</item>
     </style>
 
+    <style name="victoria">
+        <item name="android:textSize">80sp</item>
+    </style>
+
 
 
 

@@ -13,10 +13,11 @@
     <string name="desc">desc</string>
     <string name="p1_introduccion1">In this application you can answer a series of questions related to astronomy.</string>
     <string name="p1_introduccion2">Do not panic! If you don\'t know much about this area, you can regulate the difficulty based on your knowledge.</string>
-    <string name="p1_introduccion3">¡Empieza con esta aventura pulsando el botón que tienes a continuación!</string>
     <string name="p1_titulointro">Welcome to Galaxy Traveler!</string>
     <string name="textajuda">To play the game you have to choose a profile and a name.</string>
     <string name="textajuda2">Select a difficulty and enjoy with all the questions!</string>
     <string name="textajuda3">Press the logo image to return to the main screen!</string>
     <string name="textajudatitulo">HELP</string>
+    <string name="p1_introduccion3">Start with this adventure by pressing the button below!</string>
+    <string name="textView_victoria">VICTORY</string>
 </resources>
