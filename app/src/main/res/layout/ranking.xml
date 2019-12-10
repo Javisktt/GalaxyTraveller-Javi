@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
+    android:background="@drawable/fondo_app2"
     >
 
     <LinearLayout
@@ -14,10 +15,15 @@
         android:orientation="vertical"
 
         >
+
         <Button
-            android:id="@+id/ButtAtrás"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/ButtonAtrás"
+            android:layout_width="235dp"
+            android:layout_height="219dp"
+            android:background="@drawable/arrow_back" />
 
     </LinearLayout>
 
