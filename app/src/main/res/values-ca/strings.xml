@@ -19,4 +19,5 @@
     <string name="textajuda2">Selecciona una dificultat i disfruta de les preguntes!</string>
     <string name="textajuda3">Toca l\'imatge del logo per a tornar a la pantalla principal!</string>
     <string name="textajudatitulo">AJUDA</string>
+    <string name="textView_victoria">VICTORIA</string>
 </resources>
