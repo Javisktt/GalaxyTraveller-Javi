@@ -4,11 +4,12 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +31,7 @@ import java.util.Iterator;
 
 public class p_preguntas extends AppCompatActivity {
 
-    private Typeface fuenteApp;
+
     public static final int MILLIS = 31000;
     public static final int INTERVAL = 1000;
     public static final byte RONDA_START = 0;
@@ -47,6 +48,11 @@ public class p_preguntas extends AppCompatActivity {
     private Button opcio2;
     private Button opcio3;
     private Button opcio4;
+    private Button button_enrere;
+    Chronometer cronometro;
+    boolean correr=false;
+    long parar;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,15 +77,27 @@ public class p_preguntas extends AppCompatActivity {
 
         ArrayList <Pregunta> todas = new ArrayList<Pregunta>();
 
+        cronometro = findViewById(R.id.cronometro);
         boolean permitido = permisos ();
+        opcio1 = findViewById(R.id.opcio1);
+        opcio2 = findViewById(R.id.opcio2);
+        opcio3 = findViewById(R.id.opcio3);
+        opcio4 = findViewById(R.id.opcio4);
+        button_enrere = findViewById(R.id.button_enrere);
 
-        final Button button_enrere = findViewById(R.id.button_enrere);
+        // Arranca el cronometro
+        startChronometro();
+
+
 
 
         opcio1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 RellenaPregunta();
+                cogeRespuesta(opcio1,actual);
+
 
             }
         });
@@ -88,6 +106,7 @@ public class p_preguntas extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 RellenaPregunta();
+                cogeRespuesta(opcio2,actual);
 
             }
         });
@@ -96,6 +115,7 @@ public class p_preguntas extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 RellenaPregunta();
+                cogeRespuesta(opcio3,actual);
 
             }
         });
@@ -104,6 +124,8 @@ public class p_preguntas extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 RellenaPregunta();
+                cogeRespuesta(opcio4,actual);
+
 
             }
         });
@@ -117,6 +139,7 @@ public class p_preguntas extends AppCompatActivity {
 
             }
         });
+
 
         if (permitido == true)
         {
@@ -196,6 +219,22 @@ public class p_preguntas extends AppCompatActivity {
 
         }
 
+    }
+
+    private void startChronometro(){
+        if (!correr) {
+            cronometro.setBase(SystemClock.elapsedRealtime());
+            cronometro.start();
+            correr = true;
+        }
+    }
+
+    private void stopChronometro() {
+        if(correr = true){
+            cronometro.stop();
+            parar = SystemClock.elapsedRealtime() - cronometro.getBase();
+            correr = false;
+        }
     }
 
     public Boolean permisos ()
@@ -333,16 +372,11 @@ para evitar la predicción de la próxima
 
         if (actual.getRespuestaCorrecta().equals(respuesta.getText().toString()))
         {
-
             respuesta.setTextColor(Color.GREEN);
-            rondas++;
-            respuesta.setTextColor (Color.BLACK);
-
 
         }
         else
         {
-
             respuesta.setTextColor(Color.RED);
 
         }
@@ -350,6 +384,26 @@ para evitar la predicción de la próxima
 
     }
 
+    public void tornaraBlanc(View v, Pregunta actual)
+    {
+        boolean correcta = false;
+        Button respuesta = (Button) v;
+
+        if (actual.getRespuestaCorrecta().equals(respuesta.getText().toString()))
+        {
+            respuesta.setTextColor(Color.WHITE);
+
+
+
+        }
+        else
+        {
+            respuesta.setTextColor(Color.WHITE);
+
+        }
+
+
+    }
 
 }
 
