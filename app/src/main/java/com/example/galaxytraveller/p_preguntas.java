@@ -45,6 +45,7 @@ public class p_preguntas extends AppCompatActivity {
     private Button opcio2;
     private Button opcio3;
     private Button opcio4;
+    private Button button_enrere;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,7 @@ public class p_preguntas extends AppCompatActivity {
         opcio2 = findViewById(R.id.opcio2);
         opcio3 = findViewById(R.id.opcio3);
         opcio4 = findViewById(R.id.opcio4);
-        final Button button_enrere = findViewById(R.id.button_enrere);
+        button_enrere = findViewById(R.id.button_enrere);
 
 
         opcio1.setOnClickListener(new View.OnClickListener() {

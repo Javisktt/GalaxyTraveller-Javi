@@ -1,7 +1,8 @@
 package com.example.galaxytraveller;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Typeface;
@@ -12,12 +13,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import java.util.Locale;
 
 
 public class p1_intro extends AppCompatActivity {
 
 
+    private static final int REQUEST_CODE_ASK_PERMISSION = 111;
     private Typeface fuenteApp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,8 @@ public class p1_intro extends AppCompatActivity {
         textView_desc1.setTypeface(fuenteApp);
         textView_desc2.setTypeface(fuenteApp);
         textView_desc3.setTypeface(fuenteApp);
+
+        permisos();
 
         p1_buttonAyuda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,5 +108,52 @@ public class p1_intro extends AppCompatActivity {
             conf.locale = new Locale(localCode.toLowerCase());
         }
         res.updateConfiguration(conf, dm);
+    }
+
+    public Boolean permisos ()
+    {
+
+
+        Boolean permitido = false;
+
+        if (android.os.Build.VERSION.SDK_INT >= 23)
+        {
+            // Si executem la versió Marshmallow (6.0) o posterior, haurem de demanar
+            // permisos en temps d'execució
+
+            // Comprovem si l'usuari ja ens ha donat permisos en una execió anterior
+            if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED)
+            {
+
+
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        REQUEST_CODE_ASK_PERMISSION);
+
+                // Codi que volem executar
+                permitido = true;
+
+            }
+            else
+            {
+                // Si l'usuari ja ens havia atorgat permisos en una execució anterior,
+                // executem directament el nostre codi
+
+                permitido = true;
+                // Codi que volem executar
+            }
+        }
+        else
+        {
+            // Si executem una versió anterior a la versió Marshmallow (6.0),
+            // no cal demanar cap permís, i podem executar el nostre codi directament
+            permitido = true;
+            // Codi que volem executar
+        }
+
+        return permitido;
+
     }
 }
