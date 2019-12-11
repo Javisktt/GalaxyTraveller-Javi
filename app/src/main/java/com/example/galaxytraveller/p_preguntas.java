@@ -76,6 +76,8 @@ public class p_preguntas extends AppCompatActivity {
             public void onClick(View view) {
 
                 RellenaPregunta();
+                cogeRespuesta(opcio1,actual);
+
 
             }
         });
@@ -84,6 +86,7 @@ public class p_preguntas extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 RellenaPregunta();
+                cogeRespuesta(opcio2,actual);
 
             }
         });
@@ -92,6 +95,7 @@ public class p_preguntas extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 RellenaPregunta();
+                cogeRespuesta(opcio3,actual);
 
             }
         });
@@ -100,6 +104,8 @@ public class p_preguntas extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 RellenaPregunta();
+                cogeRespuesta(opcio4,actual);
+
 
             }
         });
@@ -113,6 +119,7 @@ public class p_preguntas extends AppCompatActivity {
 
             }
         });
+
 
         if (permitido == true)
         {
@@ -345,16 +352,13 @@ para evitar la predicción de la próxima
 
         if (actual.getRespuestaCorrecta().equals(respuesta.getText().toString()))
         {
-
             respuesta.setTextColor(Color.GREEN);
-            rondas++;
-            respuesta.setTextColor (Color.BLACK);
+
 
 
         }
         else
         {
-
             respuesta.setTextColor(Color.RED);
 
         }
@@ -362,6 +366,26 @@ para evitar la predicción de la próxima
 
     }
 
+    public void tornaraBlanc(View v, Pregunta actual)
+    {
+        boolean correcta = false;
+        Button respuesta = (Button) v;
+
+        if (actual.getRespuestaCorrecta().equals(respuesta.getText().toString()))
+        {
+            respuesta.setTextColor(Color.WHITE);
+
+
+
+        }
+        else
+        {
+            respuesta.setTextColor(Color.WHITE);
+
+        }
+
+
+    }
 
 }
 
