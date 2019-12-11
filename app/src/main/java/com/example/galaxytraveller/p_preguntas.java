@@ -18,6 +18,8 @@ import androidx.core.content.ContextCompat;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.w3c.dom.Text;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -46,17 +48,31 @@ public class p_preguntas extends AppCompatActivity {
     private Button opcio3;
     private Button opcio4;
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preguntas);
+
+        TextView nomPregunta = (TextView) findViewById(R.id.nomPregunta);
+        Button opcio1 = (Button) findViewById(R.id.opcio1);
+        Button opcio2 = (Button) findViewById(R.id.opcio2);
+        Button opcio3 = (Button) findViewById(R.id.opcio3);
+        Button opcio4 = (Button) findViewById(R.id.opcio4);
+
+        //Creamos un string donde se guarda la ruta de nuestra fuente
+        String ruta_fuente = "fonts/MidNight.ttf";
+        //Lo ponemos como un recurso para poder usarlo y hacemos que coja el pathing de nuestra fuente asignandole el string anterior
+        this.fuenteApp = Typeface.createFromAsset(getAssets(), ruta_fuente);
+
+        nomPregunta.setTypeface(fuenteApp);
+        opcio1.setTypeface(fuenteApp);
+        opcio2.setTypeface(fuenteApp);
+        opcio3.setTypeface(fuenteApp);
+        opcio4.setTypeface(fuenteApp);
+
         ArrayList <Pregunta> todas = new ArrayList<Pregunta>();
 
         boolean permitido = permisos ();
-        opcio1 = findViewById(R.id.opcio1);
-        opcio2 = findViewById(R.id.opcio2);
-        opcio3 = findViewById(R.id.opcio3);
-        opcio4 = findViewById(R.id.opcio4);
+
         final Button button_enrere = findViewById(R.id.button_enrere);
 
 
