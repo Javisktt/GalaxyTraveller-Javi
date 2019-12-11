@@ -12,33 +12,35 @@
 
     <style name="textTittleStyle">
         <item name="android:textColor">@color/colorAmarillo</item>
-        <item name="android:textSize">70sp</item>
+        <item name="android:textSize">@dimen/textSizeTittle</item>
     </style>
 
     <style name="textStyle">
         <item name="android:textColor">@color/colorAmarillo</item>
-        <item name="android:textSize">68sp</item>
+        <item name="android:textSize">@dimen/textSizeNormal</item>
+    </style>
+
+    <style name="textStyleBig">
+        <item name="android:textColor">@color/colorAmarillo</item>
+        <item name="android:textSize">@dimen/textSizeBig</item>
     </style>
 
     <style name="buttonStyleBig">
         <item name="android:background">@drawable/button_fondo3</item>
         <item name="android:textColor">@color/colorAzulOscuro</item>
-        <item name="android:textSize">80sp</item>
+        <item name="android:textSize">@dimen/textSizeBigButtons</item>
     </style>
 
     <style name="buttonStyle">
         <item name="android:background">@drawable/button_fondo3</item>
         <item name="android:textColor">@color/colorAzulOscuro</item>
-        <item name="android:textSize">70sp</item>
+        <item name="android:textSize">@dimen/textSizeNormal</item>
     </style>
 
     <style name="ayuda">
-        <item name="android:textSize">70sp</item>
+        <item name="android:textSize">@dimen/textSizeNormal</item>
     </style>
 
-    <style name="victoria">
-        <item name="android:textSize">80sp</item>
-    </style>
 
     <style name="pregunta">
         <item name="android:background">@drawable/button_fondo3</item>

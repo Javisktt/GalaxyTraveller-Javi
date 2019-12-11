@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSizeTittle">70</dimen>
+    <dimen name="textSizeNormal">68</dimen>
+    <dimen name="textSizeBig">300</dimen>
+    <dimen name="textSizeBigButtons">80</dimen>
+</resources>
