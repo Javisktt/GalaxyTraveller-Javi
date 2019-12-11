@@ -4,11 +4,12 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,7 +29,7 @@ import java.util.Iterator;
 
 public class p_preguntas extends AppCompatActivity {
 
-    private Typeface fuenteApp;
+
     public static final int MILLIS = 31000;
     public static final int INTERVAL = 1000;
     public static final byte RONDA_START = 0;
@@ -46,6 +47,10 @@ public class p_preguntas extends AppCompatActivity {
     private Button opcio3;
     private Button opcio4;
     private Button button_enrere;
+    Chronometer cronometro;
+    boolean correr=false;
+    long parar;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,7 @@ public class p_preguntas extends AppCompatActivity {
         setContentView(R.layout.preguntas);
         ArrayList <Pregunta> todas = new ArrayList<Pregunta>();
 
+        cronometro = findViewById(R.id.cronometro);
         boolean permitido = permisos ();
         opcio1 = findViewById(R.id.opcio1);
         opcio2 = findViewById(R.id.opcio2);
@@ -60,10 +66,15 @@ public class p_preguntas extends AppCompatActivity {
         opcio4 = findViewById(R.id.opcio4);
         button_enrere = findViewById(R.id.button_enrere);
 
+        // Arranca el cronometro
+        startChronometro();
+
+
 
         opcio1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 RellenaPregunta();
 
             }
@@ -181,6 +192,22 @@ public class p_preguntas extends AppCompatActivity {
 
         }
 
+    }
+
+    private void startChronometro(){
+        if (!correr) {
+            cronometro.setBase(SystemClock.elapsedRealtime());
+            cronometro.start();
+            correr = true;
+        }
+    }
+
+    private void stopChronometro() {
+        if(correr = true){
+            cronometro.stop();
+            parar = SystemClock.elapsedRealtime() - cronometro.getBase();
+            correr = false;
+        }
     }
 
     public Boolean permisos ()

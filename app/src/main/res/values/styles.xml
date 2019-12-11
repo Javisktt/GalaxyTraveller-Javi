@@ -42,17 +42,19 @@
 
     <style name="pregunta">
         <item name="android:background">@drawable/button_fondo3</item>
-        <item name="android:textColor">@color/colorAmarillo</item>
+        <item name="android:textColor">@color/colorBlanco</item>
         <item name="android:textSize">40sp</item>
     </style>
 
     <style name="opcio">
         <item name="android:background">@drawable/button_fondo3</item>
-        <item name="android:textColor">@color/colorAmarillo</item>
+        <item name="android:textColor">@color/colorBlanco</item>
         <item name="android:textSize">40sp</item>
     </style>
 
-
-
-
+    <style name="cronometro">
+        <item name="android:background">@drawable/cronometro</item>
+        <item name="android:textColor">@color/colorBlanco</item>
+        <item name="android:textSize">55sp</item>
+    </style>
  </resources>
