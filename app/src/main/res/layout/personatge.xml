@@ -6,8 +6,6 @@
     android:orientation="vertical">
 
 
-
-
     <Button
         android:id="@+id/ButtonAtrás"
         android:layout_width="143dp"

@@ -32,15 +32,9 @@
 
         <TextView
             android:id="@+id/nomPregunta"
-
             style="@style/pregunta"
-            android:layout_width="1050dp"
-            android:layout_height="222dp"
-
-            android:layout_marginTop="30dp"
             android:layout_width="850dp"
             android:layout_height="wrap_content"
-
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:background="@drawable/button_fondo3"
@@ -58,10 +52,7 @@
 
         <Button
             android:id="@+id/opcio1"
-
             style="@style/opcio"
-
-
             android:layout_marginTop="20dp"
             android:layout_marginLeft="450dp"
             android:layout_width="500dp"
@@ -70,9 +61,7 @@
 
         <Button
             android:id="@+id/opcio2"
-
             style="@style/opcio"
-
             android:layout_marginTop="20dp"
             android:layout_width="500dp"
             android:layout_height="200dp"
@@ -97,9 +86,7 @@
 
         <Button
             android:id="@+id/opcio3"
-
             style="@style/opcio"
-
             android:layout_marginTop="20dp"
             android:layout_marginLeft="450dp"
             android:layout_width="500dp"
@@ -108,9 +95,7 @@
 
         <Button
             android:id="@+id/opcio4"
-
             style="@style/opcio"
-
             android:layout_marginTop="20dp"
             android:layout_width="500dp"
             android:layout_height="200dp"
