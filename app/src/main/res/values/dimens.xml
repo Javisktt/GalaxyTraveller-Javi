@@ -4,4 +4,6 @@
     <dimen name="textSizeNormal">68</dimen>
     <dimen name="textSizeBig">300</dimen>
     <dimen name="textSizeBigButtons">80</dimen>
+    <dimen name="textSizePreguntas">40</dimen>
+    <dimen name="textSizeCronometro">55</dimen>
 </resources>

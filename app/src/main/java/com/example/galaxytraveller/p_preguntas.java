@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
@@ -40,14 +41,15 @@ public class p_preguntas extends AppCompatActivity {
 
     private byte rondas;
 
+    private Typeface fuenteApp;
     private boolean correcta;
     private Pregunta actual;
     private ArrayList<Pregunta> dificultad_seleccionada = new ArrayList<Pregunta>();
-    private TextView nomPregunta;
-    private Button opcio1;
-    private Button opcio2;
-    private Button opcio3;
-    private Button opcio4;
+    private TextView nomPregunta = (TextView) findViewById(R.id.nomPregunta);
+    final private Button opcio1 = (Button) findViewById(R.id.opcio1);
+    final private Button opcio2 = (Button) findViewById(R.id.opcio2);
+    final private Button opcio3 = (Button) findViewById(R.id.opcio3);
+    final private Button opcio4 = (Button) findViewById(R.id.opcio4);
     private Button button_enrere;
     Chronometer cronometro;
     boolean correr=false;
@@ -57,12 +59,6 @@ public class p_preguntas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preguntas);
-
-        TextView nomPregunta = (TextView) findViewById(R.id.nomPregunta);
-        Button opcio1 = (Button) findViewById(R.id.opcio1);
-        Button opcio2 = (Button) findViewById(R.id.opcio2);
-        Button opcio3 = (Button) findViewById(R.id.opcio3);
-        Button opcio4 = (Button) findViewById(R.id.opcio4);
 
         //Creamos un string donde se guarda la ruta de nuestra fuente
         String ruta_fuente = "fonts/MidNight.ttf";
@@ -79,10 +75,6 @@ public class p_preguntas extends AppCompatActivity {
 
         cronometro = findViewById(R.id.cronometro);
         boolean permitido = permisos ();
-        opcio1 = findViewById(R.id.opcio1);
-        opcio2 = findViewById(R.id.opcio2);
-        opcio3 = findViewById(R.id.opcio3);
-        opcio4 = findViewById(R.id.opcio4);
         button_enrere = findViewById(R.id.button_enrere);
 
         // Arranca el cronometro

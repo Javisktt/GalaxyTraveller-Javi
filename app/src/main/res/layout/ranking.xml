@@ -12,9 +12,7 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-
-        >
+        android:orientation="vertical">
 
         <Button
             android:layout_marginTop="20dp"
@@ -31,14 +29,12 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            />
+            android:layout_height="100dp"/>
 
         <GridView
             android:id="@+id/GrdMenu"
@@ -46,8 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numColumns="1"
-            android:stretchMode="none"
-            />
+            android:stretchMode="none"/>
     </LinearLayout>
 
 </LinearLayout>
