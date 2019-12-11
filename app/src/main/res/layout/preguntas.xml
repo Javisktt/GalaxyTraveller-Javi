@@ -71,7 +71,7 @@
         <Chronometer
             android:id="@+id/cronometro"
             style="@style/cronometro"
-            android:layout_width="290dp"
+            android:layout_width="264dp"
             android:layout_height="94dp"
             android:layout_marginLeft="40dp" />
 
