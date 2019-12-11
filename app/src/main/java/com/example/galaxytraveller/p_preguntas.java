@@ -354,8 +354,6 @@ para evitar la predicción de la próxima
         {
             respuesta.setTextColor(Color.GREEN);
 
-
-
         }
         else
         {
