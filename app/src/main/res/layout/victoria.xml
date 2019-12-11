@@ -17,9 +17,11 @@
 
     <TextView
         android:id="@+id/textView_victoria"
-        style="@style/victoria"
+        style="@style/textStyleBig"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
+        android:textAlignment="center"
         tools:text="@string/textView_victoria" />
 
 </LinearLayout>

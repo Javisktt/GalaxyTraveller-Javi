@@ -23,6 +23,7 @@
             android:layout_marginLeft="20dp"
             android:background="@drawable/arrow_back" />
 
+
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -31,6 +32,7 @@
 
         <TextView
             android:id="@+id/nomPregunta"
+            style="@style/textStyle"
             android:layout_marginTop="30dp"
             android:layout_width="850dp"
             android:layout_height="wrap_content"
@@ -50,6 +52,7 @@
 
         <Button
             android:id="@+id/opcio1"
+            style="@style/textStyle"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="450dp"
             android:layout_width="500dp"
@@ -58,6 +61,7 @@
 
         <Button
             android:id="@+id/opcio2"
+            style="@style/textStyle"
             android:layout_marginTop="20dp"
             android:layout_width="500dp"
             android:layout_height="200dp"
@@ -75,6 +79,7 @@
 
         <Button
             android:id="@+id/opcio3"
+            style="@style/textStyle"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="450dp"
             android:layout_width="500dp"
@@ -83,6 +88,7 @@
 
         <Button
             android:id="@+id/opcio4"
+            style="@style/textStyle"
             android:layout_marginTop="20dp"
             android:layout_width="500dp"
             android:layout_height="200dp"
